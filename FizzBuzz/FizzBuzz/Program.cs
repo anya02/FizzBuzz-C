@@ -1,29 +1,40 @@
 ﻿Console.WriteLine("Hello, World!");
 
+//string[] output = new string[3];
+
+//Console.WriteLine(output.Length);
+
+
 for (int i = 1; i < 256; i++)
 {
-    string output = string.Empty;
+    string[] output = new string[3];
+    string final;
 
     if (i % 3 == 0)
     {
-        output = "Fizz";
+        output[0] = "Fizz";
     }
     if (i % 5 == 0)
     {
-        output += "Buzz";
+        output[1] = "Buzz";
     }
     if (i % 7 == 0)
     {
-        output += "Bang";
+        output[2] = "Bang";
     }
     if (i % 11 == 0)
     {
-        output = "Bong";
+        Array.Clear(output, 0, output.Length);
+        output[0] = "Bong";
     }
-    if (output.Length < 1)
+    if (output[0] == null)
     {
-        output = i.ToString();
+        final = i.ToString();
+    } else
+    {
+        final = string.Join("", output);
     }
 
-    Console.WriteLine(output);
-}
+    
+    Console.WriteLine(final);
+} 
